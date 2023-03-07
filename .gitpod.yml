@@ -1,0 +1,19 @@
+tasks:
+  - init: |
+      python -m venv venv
+      source venv/bin/activate
+      export AIRFLOW_HOME=~/airflow
+      pip install --upgrade pip wheel setuptools
+      pip install apache-airflow
+      airflow db init
+      
+  - command: |
+      source venv/bin/activate
+      airflow webserver -p 8080
+      airflow scheduler
+      airflow users  create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
+  
+
+vscode:
+  extensions:
+    - ms-python.python
