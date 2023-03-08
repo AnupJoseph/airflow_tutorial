@@ -1,14 +1,13 @@
 tasks:
   - init: |
       export AIRFLOW_HOME=~/airflow
-      pip install --upgrade pip wheel setuptools 
+      pip install --upgrade pip wheel setuptools
   - command: |
-      pip install apache-airflow
+      pip install apache-airflow black
       airflow db init 
       nohup airflow webserver -p 8080 &
       nohup airflow scheduler &
       airflow users  create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
-
 
 vscode:
   extensions:
