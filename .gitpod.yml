@@ -3,7 +3,7 @@ tasks:
       export AIRFLOW_HOME=~/airflow
       pip install --upgrade pip wheel setuptools
   - command: |
-      pip install apache-airflow black
+      pip install -r requirements.txt
       airflow db init 
       nohup airflow webserver -p 8080 &
       nohup airflow scheduler &
